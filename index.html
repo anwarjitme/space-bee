@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conference Speakers</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<main class="main">
+  <header class="header">
+    <h1 class="header__headline">View our Featured Speakers for the Event</h1>
+    <p class="header__details">Speakers are core contributors and industry thought leaders working at 
+     <span class="header__details-highlight">companies</span> that push for innovation.</p>
+   </header>
+   <div class="main__container">
+    <!-- Modal -->
+    <div class="modal" id="modal">
+      <button class="modal__close" onclick="closeModal()">✖</button>
+      <div class="modal__content">
+        <img id="modalImage" class="modal__content-image" src="" alt="">
+        <div>
+          <h2 id="modalName" class="modal__name"></h2>
+          <p id="modalPosition" class="modal__position"></p>
+          <p id="modalCompany" class="modal__company"></p>
+          <p id="modalBio" class="modal__bio">description.</p>
+        </div>
+      </div>
+    </div>
+   <!-- Slider -->
+   <div class="slider">
+    <button class="slider__arrow slider__arrow--left" onclick="slideLeft()" aria-label="Slide left">◀</button>
+    <div class="slider__container" id="sliderContainer">
+      <!-- Example Speaker Card -->
+      <div class="slider__card" onclick="openModal('John Doe', 'Chief Marketing Officer', 'Acme Corp', '')">
+        <img  src="https://s3-alpha-sig.figma.com/img/d6a6/fffd/2100d987b5946aa1df33cf0f6c34a418?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=p0ozEGQKCEzpMDFiGB0WI7e3Jy5hs~XAzkQEmXckRff9Yql3RG4oZ3qz7U-lmzlgN5l~VSp88OF3WSEHLG8hewYzujk8BfcrkQvmBJSeDEvGfDm6uDq5Hsx9cQ1cfgLQHZz10fHEBoS7H8kb73P-hWtJj2qYrDYGdR5YhEHfHT9EQehf5C90C4PZkDVQRu6FZWCVcxHr7FcTZGWaNC-LSjOSmA4KZaKs1FIk-OEuIlV9fK7KSQoo-7pSIHsF2dGTfhxvY4s8ywp-UY0qcUPSa7BHmFJKLlpd~NhfU2JEvdZGid5XK-F6O7RbD4CLUF1cc6yaUuh1WrCdQ9fM~aRMJQ__" alt="John Doe, Chief Marketing Officer at Acme Corp" class="slider__card-image">
+        <h3  class="slider__card-name">John Doe</h3>
+        <p class="slider__card-position">Chief Marketing Officer</p>
+        <p class="slider__card-company">Acme Corp</p>
+      </div>
+      <div class="slider__card" onclick="openModal('anwar', 'Chief Marketing Officer', 'Acme Corp', 'images/speaker1.jpg')">
+        <img src="https://s3-alpha-sig.figma.com/img/d6a6/fffd/2100d987b5946aa1df33cf0f6c34a418?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=p0ozEGQKCEzpMDFiGB0WI7e3Jy5hs~XAzkQEmXckRff9Yql3RG4oZ3qz7U-lmzlgN5l~VSp88OF3WSEHLG8hewYzujk8BfcrkQvmBJSeDEvGfDm6uDq5Hsx9cQ1cfgLQHZz10fHEBoS7H8kb73P-hWtJj2qYrDYGdR5YhEHfHT9EQehf5C90C4PZkDVQRu6FZWCVcxHr7FcTZGWaNC-LSjOSmA4KZaKs1FIk-OEuIlV9fK7KSQoo-7pSIHsF2dGTfhxvY4s8ywp-UY0qcUPSa7BHmFJKLlpd~NhfU2JEvdZGid5XK-F6O7RbD4CLUF1cc6yaUuh1WrCdQ9fM~aRMJQ__" alt="John Doe, Chief Marketing Officer at Acme Corp" class="slider__card-image">
+        <h3 class="slider__card-name">anwar Doe</h3>
+        <p class="slider__card-position">Chief Marketing Officer</p>
+        <p class="slider__card-company">Acme Corp</p>
+      </div>
+      <div class="slider__card" onclick="openModal('ronny', 'Chief Marketing Officer', 'Acme Corp', 'images/speaker1.jpg')">
+        <img src="https://s3-alpha-sig.figma.com/img/d6a6/fffd/2100d987b5946aa1df33cf0f6c34a418?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=p0ozEGQKCEzpMDFiGB0WI7e3Jy5hs~XAzkQEmXckRff9Yql3RG4oZ3qz7U-lmzlgN5l~VSp88OF3WSEHLG8hewYzujk8BfcrkQvmBJSeDEvGfDm6uDq5Hsx9cQ1cfgLQHZz10fHEBoS7H8kb73P-hWtJj2qYrDYGdR5YhEHfHT9EQehf5C90C4PZkDVQRu6FZWCVcxHr7FcTZGWaNC-LSjOSmA4KZaKs1FIk-OEuIlV9fK7KSQoo-7pSIHsF2dGTfhxvY4s8ywp-UY0qcUPSa7BHmFJKLlpd~NhfU2JEvdZGid5XK-F6O7RbD4CLUF1cc6yaUuh1WrCdQ9fM~aRMJQ__" alt="John Doe, Chief Marketing Officer at Acme Corp" class="slider__card-image">
+        <h3 class="slider__card-name">mamun Doe</h3>
+        <p class="slider__card-position">Chief Marketing Officer</p>
+        <p class="slider__card-company">Acme Corp</p>
+      </div>
+      <div class="slider__card" onclick="openModal('akbar', 'Chief Marketing Officer', 'Acme Corp', 'images/speaker1.jpg')">
+        <img src="https://s3-alpha-sig.figma.com/img/d6a6/fffd/2100d987b5946aa1df33cf0f6c34a418?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=p0ozEGQKCEzpMDFiGB0WI7e3Jy5hs~XAzkQEmXckRff9Yql3RG4oZ3qz7U-lmzlgN5l~VSp88OF3WSEHLG8hewYzujk8BfcrkQvmBJSeDEvGfDm6uDq5Hsx9cQ1cfgLQHZz10fHEBoS7H8kb73P-hWtJj2qYrDYGdR5YhEHfHT9EQehf5C90C4PZkDVQRu6FZWCVcxHr7FcTZGWaNC-LSjOSmA4KZaKs1FIk-OEuIlV9fK7KSQoo-7pSIHsF2dGTfhxvY4s8ywp-UY0qcUPSa7BHmFJKLlpd~NhfU2JEvdZGid5XK-F6O7RbD4CLUF1cc6yaUuh1WrCdQ9fM~aRMJQ__" alt="John Doe, Chief Marketing Officer at Acme Corp" class="slider__card-image">
+        <h3 class="slider__card-name">hossain Doe</h3>
+        <p class="slider__card-position">Chief Marketing Officer</p>
+        <p class="slider__card-company">Acme Corp</p>
+      </div>
+      <div class="slider__card" onclick="openModal('ravi', 'Chief Marketing Officer', 'Acme Corp', 'images/speaker1.jpg')">
+        <img src="https://s3-alpha-sig.figma.com/img/d6a6/fffd/2100d987b5946aa1df33cf0f6c34a418?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=p0ozEGQKCEzpMDFiGB0WI7e3Jy5hs~XAzkQEmXckRff9Yql3RG4oZ3qz7U-lmzlgN5l~VSp88OF3WSEHLG8hewYzujk8BfcrkQvmBJSeDEvGfDm6uDq5Hsx9cQ1cfgLQHZz10fHEBoS7H8kb73P-hWtJj2qYrDYGdR5YhEHfHT9EQehf5C90C4PZkDVQRu6FZWCVcxHr7FcTZGWaNC-LSjOSmA4KZaKs1FIk-OEuIlV9fK7KSQoo-7pSIHsF2dGTfhxvY4s8ywp-UY0qcUPSa7BHmFJKLlpd~NhfU2JEvdZGid5XK-F6O7RbD4CLUF1cc6yaUuh1WrCdQ9fM~aRMJQ__" alt="John Doe, Chief Marketing Officer at Acme Corp" class="slider__card-image">
+        <h3 class="slider__card-name">masai Doe</h3>
+        <p class="slider__card-position">Chief Marketing Officer</p>
+        <p class="slider__card-company">Acme Corp</p>
+      </div>
+      <div class="slider__card" onclick="openModal('achinta', 'Chief Marketing Officer', 'Acme Corp', 'images/speaker1.jpg')">
+        <img src="https://s3-alpha-sig.figma.com/img/d6a6/fffd/2100d987b5946aa1df33cf0f6c34a418?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=p0ozEGQKCEzpMDFiGB0WI7e3Jy5hs~XAzkQEmXckRff9Yql3RG4oZ3qz7U-lmzlgN5l~VSp88OF3WSEHLG8hewYzujk8BfcrkQvmBJSeDEvGfDm6uDq5Hsx9cQ1cfgLQHZz10fHEBoS7H8kb73P-hWtJj2qYrDYGdR5YhEHfHT9EQehf5C90C4PZkDVQRu6FZWCVcxHr7FcTZGWaNC-LSjOSmA4KZaKs1FIk-OEuIlV9fK7KSQoo-7pSIHsF2dGTfhxvY4s8ywp-UY0qcUPSa7BHmFJKLlpd~NhfU2JEvdZGid5XK-F6O7RbD4CLUF1cc6yaUuh1WrCdQ9fM~aRMJQ__" alt="John Doe, Chief Marketing Officer at Acme Corp" class="slider__card-image">
+        <h3 class="slider__card-name">ronny Doe</h3>
+        <p class="slider__card-position">Chief Marketing Officer</p>
+        <p class="slider__card-company">Acme Corp</p>
+      </div>
+      
+    </div>
+    <button class="slider__arrow slider__arrow--right" onclick="slideRight()" aria-label="Slide right">▶</button>
+  </div>
+</div>
+</main>
+  <button class="btn">See The Program</button>
+
+  <script src="./script/main.js"></script>
+</body>
+</html>
